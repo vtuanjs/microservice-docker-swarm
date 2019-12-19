@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+service ProductManager {
+  rpc delete(Request) returns (Reply){}
+  rpc update(Request) returns (Reply){}
+  rpc create(Request) returns (Reply){}
+  rpc list(Request) returns (Reply){}
+}
+
+/*
+* A message for the return value of a rpc function.
+* raw = JSON.stringify({value: any})
+*/
+message Reply {
+  string raw = 1;
+}
+
+/*
+* A message for the argument of a rpc function.
+* raw = JSON.stringify({value: any})
+*/
+message Request {
+  string raw = 1;
+}

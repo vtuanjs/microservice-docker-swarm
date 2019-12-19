@@ -1,0 +1,23 @@
+{
+  "name": "product-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha --timeout 999999 --recursive --colors ./test/**/*.test.js",
+    "start": "node main.js"
+  },
+  "author": "Nguyen Van Tuan",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "@zerocore/grpc-helper": "^1.1.1",
+    "grpc": "^1.24.2",
+    "mongoose": "^5.8.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
+}

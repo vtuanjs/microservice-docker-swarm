@@ -1,0 +1,58 @@
+version: "3.7"
+services:
+  mongo:
+    image: mongo:4.2.1
+    ports:
+      - 27018:27017
+    networks:
+      - backend
+    environment:
+      MONGO_INITDB_DATABASE: "product"
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
+    volumes:
+      - ./initdb.js:/docker-entrypoint-initdb.d/initdb.js
+      - mongo-product-db:/data/db
+      - mongo-product-backup:/backup
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 500M
+        reservations:
+          memory: 50M
+  app:
+    image: vtuanjs/product-manager
+    ports:
+      - "3003:3001"
+    environment:
+      MONGODB_SERVICE_NAME: "product_mongo"
+      MONGODB_USER_NAME: "${MONGODB_USER_NAME}"
+      MONGODB_PASSWORD: "${MONGODB_PASSWORD}"
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == worker
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 500M
+        reservations:
+          memory: 50M
+    networks: 
+      - backend
+volumes:
+  mongo-product-db:
+  mongo-product-backup:
+networks: 
+  backend:
+

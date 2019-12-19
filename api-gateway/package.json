@@ -1,0 +1,27 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha --timeout 999999 --recursive --colors ./test/**/*.test.js",
+    "start": "node main.js"
+  },
+  "author": "Nguyen Van Tuan",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "@zerocore/grpc-helper": "^1.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "grpc": "^1.24.2",
+    "http-status-codes": "^1.4.0",
+    "morgan": "^1.9.1",
+    "supertest": "^4.0.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
+}

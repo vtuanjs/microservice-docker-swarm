@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  app:
+    image: vtuanjs/api-gateway
+    ports:
+      - "3001:3001"
+    deploy:
+      labels: 
+        - api-gateway
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 500M
+        reservations:
+          memory: 50M

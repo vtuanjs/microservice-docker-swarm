@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  app:
+    container_name: product-manager
+    image: vtuanjs/product-manager
+    restart: always
+    build: 
+      context: ../
+      args:
+        - MONGODB_USER_NAME=dbtest
+        - MONGODB_PASSWORD=dbtest
+        - MONGODB_SERVICE_NAME=mongo
+    env_file: 
+      - .env
+    environment: 
+      MONGODB_SERVICE_NAME: "mongo"
+      MONGODB_USER_NAME: "${MONGODB_USER_NAME}"
+      MONGODB_PASSWORD: "${MONGODB_PASSWORD}"
+    ports:
+      - "3003:3001"
+  mongo:
+    container_name: product-mongo
+    image: mongo:4.2.1
+    ports:
+      - 27018:27017
+    env_file: 
+      - .env
+    environment:
+      MONGO_INITDB_DATABASE: "product"
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
+    volumes:
+      - ./initdb.js:/docker-entrypoint-initdb.d/initdb.js
+      - product-mongo-db:/data/db
+      - product-mongo-backup:/backup
+volumes:
+  product-mongo-db:
+  product-mongo-backup:
+

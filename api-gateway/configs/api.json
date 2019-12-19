@@ -1,0 +1,30 @@
+[
+  {
+    "resource": "/api/v1/user",
+    "basePath": "/api/v1",
+    "roles": [],
+    "apis": [
+      {
+        "path": "/users",
+        "method": "post",
+        "roles": [
+          "Anyone"
+        ]
+      }
+    ]
+  },
+  {
+    "resource": "/api/v1/product",
+    "basePath": "/api/v1",
+    "roles": [],
+    "apis": [
+      {
+        "path": "/products",
+        "method": "post",
+        "roles": [
+          "Anyone"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+**/configs/config.json
+.git
+.gitignore
+docker
+ReadMe.md
+node_modules
+.vscode
+test

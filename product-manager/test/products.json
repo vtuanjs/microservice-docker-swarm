@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Iphone X",
+    "price": 28000000
+  },
+  {
+    "name": "Iphone 8",
+    "price": 12000000
+  },
+  {
+    "name": "Samsung A3",
+    "price": 5000000
+  },
+  {
+    "name": "Xiaomi 9",
+    "price": 10000000
+  }
+]

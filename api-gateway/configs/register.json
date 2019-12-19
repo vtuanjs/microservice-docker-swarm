@@ -1,0 +1,10 @@
+{
+  "UserManager": {
+    "address": "user_app",
+    "port": 3001
+  },
+  "ProductManager": {
+    "address": "product_app",
+    "port": 3001
+  }
+}
