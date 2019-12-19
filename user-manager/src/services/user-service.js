@@ -30,8 +30,8 @@ exports.list = async ({ fields, filter, limit, page, sort }) => {
           throw "Wrong format limit";
         };
 
-    limit && limit > 0
-      ? (limit = parseInt(limit))
+    page && page > 0
+      ? (page = parseInt(page))
       : () => {
           throw "Wrong format page";
         };
