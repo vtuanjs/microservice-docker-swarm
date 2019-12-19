@@ -1,3 +1,4 @@
 **/logs
 **/configs/config.json
 **/node_modules
+.vscode
